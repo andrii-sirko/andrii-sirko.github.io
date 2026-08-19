@@ -32,8 +32,8 @@ const PERSON = {
   title: 'Senior Frontend Engineer · Full-Stack Contractor',
   email: 'andrii.sirko@gmail.com',
   phone: '+49 176 4340 4914',
-  city: 'Borkheide',
-  region: 'Brandenburg',
+  city: 'Berlin',
+  region: 'Berlin',
   country: 'DE',
   linkedin: 'https://www.linkedin.com/in/andrii-sirko',
   github: 'https://github.com/andrii-sirko',
@@ -196,7 +196,7 @@ for contract work.
 - Email: ${PERSON.email}
 - LinkedIn: ${PERSON.linkedin}
 - GitHub: ${PERSON.github}
-- Location: ${PERSON.city}, ${PERSON.region}, Germany
+- Location: ${PERSON.city}, Germany
 - Languages: Ukrainian (native), English (fluent, B2), German (fluent, C1)
 
 ## Core expertise

@@ -2,7 +2,7 @@
 
 **Senior Frontend Engineer · Full-Stack Contractor**
 
-andrii.sirko@gmail.com · +49 176 4340 4914 · Borkheide, Germany
+andrii.sirko@gmail.com · +49 176 4340 4914 · Berlin, Germany
 [andrii-sirko.github.io](https://andrii-sirko.github.io/) · [LinkedIn](https://www.linkedin.com/in/andrii-sirko) · [GitHub](https://github.com/andrii-sirko)
 
 Senior frontend engineer and full-stack contractor with over ten years building production React applications for European technology companies including ABOUT YOU, eBay (Adevinta), Daimler/smart, Volkswagen/Audi and Careem. Frontend lead at 1M+ monthly-active-user scale and engineer on ABOUT YOU’s 40M+ MAU e-commerce platform, specialising in TypeScript, component architecture, monorepos and performance.
