@@ -7,7 +7,7 @@ export const ENGAGEMENTS = [
   {
     id: 'aboutyou',
     company: 'ABOUT YOU',
-    role: 'Frontend Engineer',
+    role: 'Senior Frontend Engineer',
     kind: 'Contract',
     place: 'Remote',
     site: 'aboutyou.de',
@@ -18,13 +18,12 @@ export const ENGAGEMENTS = [
     summary:
       'Customer-facing features in a large-scale React/TypeScript e-commerce monorepo powering the mobile and desktop web shops, with a gRPC data layer and container/presentational package architecture.',
     bullets: [
-      'Built and hardened the "Coins" loyalty wallet — bonus display updates, a faster coin-redemption animation and the missions modal. Removed UI flickering and fixed the content_view analytics event to fire exactly once.',
-      'Checkout and pricing: migrated the coupon sticky bar to the Price Overhaul v2 pricing model and corrected the express-checkout flag to read from SCAYLE commerce-engine state.',
-      'Shipped with Storybook stories, Jest/RTL tests, Cypress E2E coverage and WCAG 2.1 AA accessibility. Authored the team’s git-worktree parallel-branch workflow guide.'
+      'Delivered the loyalty Status Program end-to-end — gRPC client integration, deep-linked routing, mobile and desktop views — from API stub to production rollout inside the Coins wallet.',
+      'Extended the A/B testing infrastructure with dynamic activation of server-side experiments and shipped experiment winners; hardened the GA4-scale analytics layer by eliminating duplicate events and enforcing event-schema correctness.'
     ],
     stack: [
       'React', 'TypeScript', 'Monorepo (Yarn workspaces)', 'Linaria', 'React Query',
-      'Zustand', 'gRPC', 'Storybook', 'Jest', 'RTL', 'Cypress', 'GitLab CI', 'SCAYLE'
+      'Zustand', 'gRPC', 'Storybook', 'Jest', 'RTL', 'Cypress', 'GitLab CI'
     ]
   },
   {
@@ -36,7 +35,7 @@ export const ENGAGEMENTS = [
     site: 'meingpt.com',
     url: 'https://meingpt.com',
     start: '2025-12',
-    end: '2026-04',
+    end: '2026-03',
     featured: true,
     summary:
       'An enterprise-grade, privacy-focused AI platform with RAG capabilities and multi-LLM support.',
@@ -254,11 +253,11 @@ export const SKILL_GROUPS = [
   },
   {
     label: 'Backend',
-    items: ['NestJS', 'TRPC', 'GraphQL', 'Prisma', 'PostgreSQL', 'MongoDB']
+    items: ['NestJS', 'TRPC', 'GraphQL', 'gRPC', 'Prisma', 'PostgreSQL', 'MongoDB']
   },
   {
     label: 'Testing',
-    items: ['Jest', 'Cypress', 'Playwright', 'k6']
+    items: ['Jest', 'Cypress', 'Playwright', 'Storybook', 'k6']
   },
   {
     label: 'Infra',

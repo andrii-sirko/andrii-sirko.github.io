@@ -41,8 +41,8 @@ const PERSON = {
     'Senior frontend engineer and full-stack contractor with over ten years building '
     + 'production React applications for European technology companies including ABOUT YOU, '
     + 'eBay (Adevinta), Daimler/smart, Volkswagen/Audi and Careem. Frontend lead at 1M+ '
-    + 'monthly-active-user scale, specialising in TypeScript, component architecture, '
-    + 'monorepos and performance.'
+    + 'monthly-active-user scale and engineer on ABOUT YOU’s 40M+ MAU e-commerce '
+    + 'platform, specialising in TypeScript, component architecture, monorepos and performance.'
 };
 
 const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June',
@@ -197,7 +197,7 @@ for contract work.
 - LinkedIn: ${PERSON.linkedin}
 - GitHub: ${PERSON.github}
 - Location: ${PERSON.city}, ${PERSON.region}, Germany
-- Languages: Ukrainian (native), English (fluent, B2), German (fluent, B2)
+- Languages: Ukrainian (native), English (fluent, B2), German (fluent, C1)
 
 ## Core expertise
 
@@ -275,7 +275,7 @@ using the WinAPI.
 
 ## Languages
 
-Ukrainian (native) · English (fluent, B2) · German (fluent, B2)
+Ukrainian (native) · English (fluent, B2) · German (fluent, C1)
 
 ## Interests
 

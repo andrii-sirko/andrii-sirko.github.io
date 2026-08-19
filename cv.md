@@ -5,7 +5,7 @@
 andrii.sirko@gmail.com · +49 176 4340 4914 · Borkheide, Germany
 [andrii-sirko.github.io](https://andrii-sirko.github.io/) · [LinkedIn](https://www.linkedin.com/in/andrii-sirko) · [GitHub](https://github.com/andrii-sirko)
 
-Senior frontend engineer and full-stack contractor with over ten years building production React applications for European technology companies including ABOUT YOU, eBay (Adevinta), Daimler/smart, Volkswagen/Audi and Careem. Frontend lead at 1M+ monthly-active-user scale, specialising in TypeScript, component architecture, monorepos and performance.
+Senior frontend engineer and full-stack contractor with over ten years building production React applications for European technology companies including ABOUT YOU, eBay (Adevinta), Daimler/smart, Volkswagen/Audi and Careem. Frontend lead at 1M+ monthly-active-user scale and engineer on ABOUT YOU’s 40M+ MAU e-commerce platform, specialising in TypeScript, component architecture, monorepos and performance.
 
 ## Core skills
 
@@ -13,9 +13,9 @@ Senior frontend engineer and full-stack contractor with over ten years building 
 
 **Mobile** — Ionic · React Native
 
-**Backend** — NestJS · TRPC · GraphQL · Prisma · PostgreSQL · MongoDB
+**Backend** — NestJS · TRPC · GraphQL · gRPC · Prisma · PostgreSQL · MongoDB
 
-**Testing** — Jest · Cypress · Playwright · k6
+**Testing** — Jest · Cypress · Playwright · Storybook · k6
 
 **Infra** — AWS · Docker · CI/CD · Kubernetes
 
@@ -24,20 +24,19 @@ Senior frontend engineer and full-stack contractor with over ten years building 
 ## Experience
 
 ### ABOUT YOU
-**Frontend Engineer** · Contract · Remote · aboutyou.de
+**Senior Frontend Engineer** · Contract · Remote · aboutyou.de
 *June 2026 – Present*
 
 Customer-facing features in a large-scale React/TypeScript e-commerce monorepo powering the mobile and desktop web shops, with a gRPC data layer and container/presentational package architecture.
 
-- Built and hardened the "Coins" loyalty wallet — bonus display updates, a faster coin-redemption animation and the missions modal. Removed UI flickering and fixed the content_view analytics event to fire exactly once.
-- Checkout and pricing: migrated the coupon sticky bar to the Price Overhaul v2 pricing model and corrected the express-checkout flag to read from SCAYLE commerce-engine state.
-- Shipped with Storybook stories, Jest/RTL tests, Cypress E2E coverage and WCAG 2.1 AA accessibility. Authored the team’s git-worktree parallel-branch workflow guide.
+- Delivered the loyalty Status Program end-to-end — gRPC client integration, deep-linked routing, mobile and desktop views — from API stub to production rollout inside the Coins wallet.
+- Extended the A/B testing infrastructure with dynamic activation of server-side experiments and shipped experiment winners; hardened the GA4-scale analytics layer by eliminating duplicate events and enforcing event-schema correctness.
 
-**Stack:** React, TypeScript, Monorepo (Yarn workspaces), Linaria, React Query, Zustand, gRPC, Storybook, Jest, RTL, Cypress, GitLab CI, SCAYLE
+**Stack:** React, TypeScript, Monorepo (Yarn workspaces), Linaria, React Query, Zustand, gRPC, Storybook, Jest, RTL, Cypress, GitLab CI
 
 ### SelectCode GmbH
 **Fullstack Developer** · Contract · Remote · meingpt.com
-*December 2025 – April 2026*
+*December 2025 – March 2026*
 
 An enterprise-grade, privacy-focused AI platform with RAG capabilities and multi-LLM support.
 
@@ -171,7 +170,7 @@ using the WinAPI.
 
 ## Languages
 
-Ukrainian (native) · English (fluent, B2) · German (fluent, B2)
+Ukrainian (native) · English (fluent, B2) · German (fluent, C1)
 
 ## Interests
 
