@@ -5,7 +5,7 @@
 andrii.sirko@gmail.com · +49 176 4340 4914 · Berlin, Germany
 [andrii-sirko.github.io](https://andrii-sirko.github.io/) · [LinkedIn](https://www.linkedin.com/in/andrii-sirko) · [GitHub](https://github.com/andrii-sirko)
 
-Senior frontend engineer and full-stack contractor with over ten years building production React applications for European technology companies including ABOUT YOU, eBay (Adevinta), Daimler/smart, Volkswagen/Audi and Careem. Frontend lead at 1M+ monthly-active-user scale and engineer on ABOUT YOU’s 40M+ MAU e-commerce platform, specialising in TypeScript, component architecture, monorepos and performance.
+Senior frontend engineer and full-stack contractor with over ten years building production React applications for European technology companies including ABOUT YOU, eBay (Adevinta), Daimler/smart, Volkswagen/Audi and Careem. Frontend lead at 1M+ monthly-active-user scale and engineer on ABOUT YOU’s 30M+ MAU e-commerce platform, specialising in TypeScript, component architecture, monorepos and performance.
 
 ## Core skills
 
@@ -126,7 +126,7 @@ Corporate customers department at the Middle East’s largest ride-hailing platf
 
 - Built React components and led architectural decisions for the corporate customers department.
 - Maintained a shared Web UI library used across the Careem ecosystem.
-- Contributed to LMD (last-mile delivery) and CareemNow (food delivery). Scrum master for a team of 6.
+- Contributed to LMD (last-mile delivery) and CareemNow (food delivery) on a platform handling 380M+ requests a day for 10M+ monthly active users. Scrum master for a team of 6.
 
 **Stack:** React, React Native, Redux, Saga, TypeScript, Jest, Cypress, Webpack, Kotlin, Scala, MySQL, AWS, Docker, Jenkins
 

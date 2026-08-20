@@ -41,7 +41,7 @@ const PERSON = {
     'Senior frontend engineer and full-stack contractor with over ten years building '
     + 'production React applications for European technology companies including ABOUT YOU, '
     + 'eBay (Adevinta), Daimler/smart, Volkswagen/Audi and Careem. Frontend lead at 1M+ '
-    + 'monthly-active-user scale and engineer on ABOUT YOU’s 40M+ MAU e-commerce '
+    + 'monthly-active-user scale and engineer on ABOUT YOU’s 30M+ MAU e-commerce '
     + 'platform, specialising in TypeScript, component architecture, monorepos and performance.'
 };
 

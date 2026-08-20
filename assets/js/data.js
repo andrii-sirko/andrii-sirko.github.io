@@ -187,7 +187,7 @@ export const ENGAGEMENTS = [
     bullets: [
       'Built React components and led architectural decisions for the corporate customers department.',
       'Maintained a shared Web UI library used across the Careem ecosystem.',
-      'Contributed to LMD (last-mile delivery) and CareemNow (food delivery). Scrum master for a team of 6.'
+      'Contributed to LMD (last-mile delivery) and CareemNow (food delivery) on a platform handling 380M+ requests a day for 10M+ monthly active users. Scrum master for a team of 6.'
     ],
     stack: [
       'React', 'React Native', 'Redux', 'Saga', 'TypeScript', 'Jest', 'Cypress',

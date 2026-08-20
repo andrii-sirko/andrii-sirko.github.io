@@ -103,8 +103,11 @@ than removing the chip.
 `robots.txt` is hand-written and explicitly allows AI crawlers by name. Leave it
 that way — the point is to be quotable by answer engines.
 
-The OG card at `assets/img/og.png` is rendered from an SVG with `rsvg-convert`
-at 1200×630. Regenerate it only if the name, title or headline numbers change.
+The OG card at `assets/img/og.png` is rendered from `assets/img/og.svg` by
+`node tools/build-og.mjs` (needs a one-off `npm install --no-save @resvg/resvg-js`;
+fonts are vendored in `tools/fonts`). Edit the SVG, then re-render. Regenerate
+only if the name, title, location or headline numbers change, and keep the SVG's
+stats in sync with the hero readouts and `og:image:alt`.
 
 ## What is NOT in data.js
 

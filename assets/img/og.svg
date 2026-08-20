@@ -1,0 +1,63 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <!-- Source of assets/img/og.png. Render with: node tools/build-og.mjs -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0.85" y2="1">
+      <stop offset="0" stop-color="#24251c"/>
+      <stop offset="0.45" stop-color="#16181a"/>
+      <stop offset="1" stop-color="#121417"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- faint grid -->
+  <g stroke="#ffffff" stroke-opacity="0.028" stroke-width="1">
+    <line x1="300" y1="0" x2="300" y2="630"/>
+    <line x1="540" y1="0" x2="540" y2="630"/>
+    <line x1="780" y1="0" x2="780" y2="630"/>
+    <line x1="1020" y1="0" x2="1020" y2="630"/>
+    <line x1="0" y1="130" x2="1200" y2="130"/>
+    <line x1="0" y1="300" x2="1200" y2="300"/>
+    <line x1="0" y1="470" x2="1200" y2="470"/>
+  </g>
+
+  <!-- logo mark -->
+  <g fill="#ffd100">
+    <rect x="72" y="66" width="34" height="7" rx="2"/>
+    <rect x="72" y="79" width="22" height="7" rx="2"/>
+    <rect x="72" y="92" width="34" height="7" rx="2"/>
+  </g>
+
+  <!-- eyebrow -->
+  <text x="126" y="91" font-family="IBM Plex Mono" font-size="21" letter-spacing="3.5"
+        fill="#8d9196">BERLIN, DE · REMOTE ACROSS EUROPE</text>
+
+  <!-- name -->
+  <text x="66" y="266" font-family="Archivo Black" font-size="112" letter-spacing="-1"
+        fill="#e9eaec">ANDRII</text>
+  <text x="66" y="380" font-family="Archivo Black" font-size="112" letter-spacing="-1"
+        fill="#ffd100">SIRKO</text>
+
+  <!-- role -->
+  <text x="70" y="447" font-family="IBM Plex Mono" font-size="26" letter-spacing="1.5"
+        fill="#d6d8db">SENIOR FRONTEND ENGINEER / FULL-STACK CONTRACTOR</text>
+
+  <!-- divider -->
+  <line x1="72" y1="500" x2="1128" y2="500" stroke="#ffffff" stroke-opacity="0.14" stroke-width="1"/>
+
+  <!-- stats -->
+  <g font-family="IBM Plex Mono">
+    <g font-size="19" letter-spacing="2.5" fill="#7d8187">
+      <text x="72" y="537">YEARS SHIPPING</text>
+      <text x="338" y="537">ENGAGEMENTS</text>
+      <text x="600" y="537">PEAK MAU</text>
+      <text x="864" y="537">MARKETS SERVED</text>
+    </g>
+    <g font-size="35" font-weight="500" fill="#f2f3f4">
+      <text x="72" y="578">12</text>
+      <text x="338" y="578">13</text>
+      <text x="600" y="578">30M+</text>
+      <text x="864" y="578">90+</text>
+    </g>
+  </g>
+</svg>
