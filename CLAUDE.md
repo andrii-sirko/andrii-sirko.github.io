@@ -146,7 +146,9 @@ Tokens are at the top of `styles.css`. Do not introduce colours outside them.
   and arrow-key navigation. Keep interactive things focusable.
 - **No dependencies and no build.** ES modules loaded directly. If you find
   yourself wanting a bundler, the answer is no.
-- **No tracking.** Fonts from Google Fonts are the only external request.
+- **External requests are limited to two:** Google Fonts and Cloudflare Web
+  Analytics (cookieless beacon at the bottom of `<head>` in `index.html`; no
+  consent banner needed). Do not add more.
 
 ## Local preview
 
