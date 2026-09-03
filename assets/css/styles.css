@@ -774,6 +774,44 @@ code { font-family: var(--mono); font-size: .9em; color: var(--signal); }
   border-radius: 2px;
 }
 
+/* ── live demo ─────────────────────────────────────────────────────────── */
+
+.demo {
+  display: grid;
+  gap: 1px;
+  background: var(--steel);
+  box-shadow: 0 0 0 1px var(--steel);
+}
+@media (min-width: 56rem) { .demo { grid-template-columns: 3fr 2fr; } }
+
+.demo__main, .demo__side { padding: 1.75rem 1.5rem 2rem; }
+@media (min-width: 48rem) { .demo__main, .demo__side { padding: 2.25rem 2rem 2.5rem; } }
+.demo__main { background: var(--graphite); }
+.demo__side { background: var(--void); }
+
+.demo__body { color: var(--mute); font-size: .9375rem; text-wrap: pretty; }
+.demo__body + .demo__body { margin-top: .875rem; }
+.demo__body em { font-style: normal; color: var(--chalk); }
+.demo__actions { margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: .625rem; }
+.demo__tags { margin-top: 1.5rem; }
+
+.demo__side-title {
+  font: 500 .625rem/1 var(--mono);
+  letter-spacing: .16em; text-transform: uppercase;
+  color: var(--signal);
+}
+.tools { margin-top: 1.25rem; display: grid; }
+.tool { padding-block: .875rem; border-top: 1px solid var(--steel); }
+.tool:first-child { border-top: 0; padding-top: 0; }
+.tool:last-child { padding-bottom: 0; }
+.tool dt {
+  display: flex; flex-wrap: wrap; gap: .25rem .75rem; align-items: baseline;
+  font: 500 .8125rem/1.3 var(--mono);
+}
+.tool dt code { font: inherit; color: var(--chalk); }
+.tool dt span { color: var(--dim); font-size: .6875rem; }
+.tool dd { margin-top: .375rem; font-size: .875rem; color: var(--mute); text-wrap: pretty; }
+
 /* ── stack ─────────────────────────────────────────────────────────────── */
 
 .stack { display: grid; gap: 1.5rem; }

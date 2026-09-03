@@ -116,8 +116,11 @@ These are hand-written prose and live in `index.html`:
 - The **Selected work** cards (`#work`). Six hand-picked engagements with a
   headline framing. When you add a `featured: true` role, decide separately
   whether it earns a card — the section is a curated six, not a feed.
+- The **Live demo** section (`#demo`). One side project, the Ask Andrii voice
+  agent, hand-written like the work cards. Its `llms.txt` / `cv.md` entry comes
+  from the `DEMO` constant in `tools/build-seo.mjs`; keep the two in sync.
 - The **hero pitch**, the **about** copy, education, languages, personal facts.
-- Two readouts — **Peak MAU** (`1M+`) and **Markets served** (`90+`). These are
+- Two readouts — **Peak MAU** (`40M+`) and **Markets served** (`90+`). These are
   claims about specific projects, not ledger arithmetic, so they're literals.
   The other two readouts carry `data-derive` and are computed.
 - Contact details and the JSON-LD `Person` block in `<head>`.

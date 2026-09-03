@@ -13,17 +13,19 @@ export const ENGAGEMENTS = [
     site: 'aboutyou.de',
     url: 'https://aboutyou.de',
     start: '2026-06',
-    end: null,
+    end: '2026-09',
     featured: true,
     summary:
       'Customer-facing features in a large-scale React/TypeScript e-commerce monorepo powering the mobile and desktop web shops, with a gRPC data layer and container/presentational package architecture.',
     bullets: [
-      'Delivered the loyalty Status Program end-to-end — gRPC client integration, deep-linked routing, mobile and desktop views — from API stub to production rollout inside the Coins wallet.',
-      'Extended the A/B testing infrastructure with dynamic activation of server-side experiments and shipped experiment winners; hardened the GA4-scale analytics layer by eliminating duplicate events and enforcing event-schema correctness.'
+      'Built the frontend of a new loyalty Status Program inside the Coins wallet — gRPC stub layer ahead of the backend, feature module, deep-link routing, skeleton loading and a pixel-matched glass-card design system — covered with Storybook and integration tests; handed over in final review.',
+      'Built a Figma-to-code icon migration pipeline (Node.js, Figma REST API) that replaced ~120 shared icons with zero call-site changes.',
+      'Delivered the mobile add-to-basket CTA experiment end to end — SSR for multi-size products, size selection, captcha retry, accessibility — with Cypress E2E and integration tests.',
+      'Replaced per-experiment feature flags with prefix-based A/B activation, cutting frontend config work per new experiment to zero; rolled out winners.'
     ],
     stack: [
-      'React', 'TypeScript', 'Monorepo (Yarn workspaces)', 'Linaria', 'React Query',
-      'Zustand', 'gRPC', 'Storybook', 'Jest', 'RTL', 'Cypress', 'GitLab CI'
+      'React', 'TypeScript', 'Linaria', 'gRPC', 'Monorepo (Yarn workspaces)', 'Node.js',
+      'Storybook', 'Jest', 'RTL', 'Cypress', 'GitLab CI', 'Datadog'
     ]
   },
   {
@@ -35,7 +37,7 @@ export const ENGAGEMENTS = [
     site: 'meingpt.com',
     url: 'https://meingpt.com',
     start: '2025-12',
-    end: '2026-03',
+    end: '2026-04',
     featured: true,
     summary:
       'An enterprise-grade, privacy-focused AI platform with RAG capabilities and multi-LLM support.',
@@ -64,10 +66,11 @@ export const ENGAGEMENTS = [
     bullets: [
       'Led a team of 5 and architected a scalable React application framework that cut client onboarding from 4 months to 30 minutes.',
       'Built a UI Editor for real-time content updates across web and native, serving 1M+ monthly active users.',
-      'Designed and owned the full load-testing suite — smoke, stress, soak and spike — for SSR and GraphQL services using k6 and Grafana Cloud.'
+      'Designed and owned the full load-testing suite — smoke, stress, soak and spike — for SSR and GraphQL services using k6 and Grafana Cloud.',
+      'Led the WCAG accessibility migration across the platform — audited components, defined remediation standards, and drove implementation to compliance across web and native apps.'
     ],
     stack: [
-      'TypeScript', 'React', 'Ionic', 'React Native', 'Next.js', 'Node.js',
+      'TypeScript', 'React', 'Vue 2/3', 'Ionic', 'React Native', 'Next.js', 'Node.js',
       'Kotlin', 'GraphQL', 'MongoDB', 'Jest', 'Cypress', 'AWS', 'k6'
     ]
   },

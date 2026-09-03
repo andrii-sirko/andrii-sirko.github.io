@@ -41,8 +41,21 @@ const PERSON = {
     'Senior frontend engineer and full-stack contractor with over ten years building '
     + 'production React applications for European technology companies including ABOUT YOU, '
     + 'eBay (Adevinta), Daimler/smart, Volkswagen/Audi and Careem. Frontend lead at 1M+ '
-    + 'monthly-active-user scale and engineer on ABOUT YOU’s 30M+ MAU e-commerce '
+    + 'monthly-active-user scale and engineer on ABOUT YOU’s 40M+ MAU e-commerce '
     + 'platform, specialising in TypeScript, component architecture, monorepos and performance.'
+};
+
+/* Side project shown in the "Live demo" section. Hand-written, like the work cards. */
+const DEMO = {
+  url: 'https://ask-andrii.vercel.app/',
+  repo: 'https://github.com/andrii-sirko/ask-andrii',
+  blurb:
+    'A voice agent built on ElevenLabs Agents that answers questions about this CV from a '
+    + 'RAG knowledge base and drives the UI while it talks, through client tools '
+    + '(highlightProject, filterByTech, showContact). The browser never sees an API key: a '
+    + 'Next.js route mints a short-lived signed URL, throttled per IP. Has a text mode for '
+    + 'use without a microphone; the agent config, tools and knowledge base live in the repo.',
+  stack: ['Next.js', 'React', 'TypeScript', 'ElevenLabs Agents', 'RAG', 'Tailwind', 'Vitest', 'Vercel']
 };
 
 const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June',
@@ -197,7 +210,7 @@ for contract work.
 - LinkedIn: ${PERSON.linkedin}
 - GitHub: ${PERSON.github}
 - Location: ${PERSON.city}, Germany
-- Languages: Ukrainian (native), English (fluent, B2), German (fluent, C1)
+- Languages: Ukrainian (native), English (fluent, C1), German (fluent, C1)
 
 ## Core expertise
 
@@ -214,6 +227,10 @@ ${SKILL_GROUPS.map((g) => `- **${g.label}**: ${g.items.join(', ')}`).join('\n')}
 - Owned a full k6 load-testing suite — smoke, stress, soak and spike — for SSR and
   GraphQL services (Mehrwerk).
 - Led a team of 5 engineers as Frontend Lead over a four-year engagement (Mehrwerk).
+
+## Live demo
+
+- [Ask Andrii](${DEMO.url}) — ${DEMO.blurb} Source: ${DEMO.repo}
 
 ## Engagement history
 
@@ -265,6 +282,14 @@ ${e.bullets.map((b) => `- ${b}`).join('\n')}
 
 **Stack:** ${e.stack.join(', ')}`).join('\n\n')}
 
+## Projects
+
+**[Ask Andrii](${DEMO.url})** — voice agent demo · 2026 · [source](${DEMO.repo})
+
+${DEMO.blurb}
+
+**Stack:** ${DEMO.stack.join(', ')}
+
 ## Education
 
 **Lviv Polytechnic National University** — MSc Computer Science · Lviv, Ukraine · 2010–2015
@@ -275,7 +300,7 @@ using the WinAPI.
 
 ## Languages
 
-Ukrainian (native) · English (fluent, B2) · German (fluent, C1)
+Ukrainian (native) · English (fluent, C1) · German (fluent, C1)
 
 ## Interests
 

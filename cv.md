@@ -5,7 +5,7 @@
 andrii.sirko@gmail.com · +49 176 4340 4914 · Berlin, Germany
 [andrii-sirko.github.io](https://andrii-sirko.github.io/) · [LinkedIn](https://www.linkedin.com/in/andrii-sirko) · [GitHub](https://github.com/andrii-sirko)
 
-Senior frontend engineer and full-stack contractor with over ten years building production React applications for European technology companies including ABOUT YOU, eBay (Adevinta), Daimler/smart, Volkswagen/Audi and Careem. Frontend lead at 1M+ monthly-active-user scale and engineer on ABOUT YOU’s 30M+ MAU e-commerce platform, specialising in TypeScript, component architecture, monorepos and performance.
+Senior frontend engineer and full-stack contractor with over ten years building production React applications for European technology companies including ABOUT YOU, eBay (Adevinta), Daimler/smart, Volkswagen/Audi and Careem. Frontend lead at 1M+ monthly-active-user scale and engineer on ABOUT YOU’s 40M+ MAU e-commerce platform, specialising in TypeScript, component architecture, monorepos and performance.
 
 ## Core skills
 
@@ -25,18 +25,20 @@ Senior frontend engineer and full-stack contractor with over ten years building 
 
 ### ABOUT YOU
 **Senior Frontend Engineer** · Contract · Remote · aboutyou.de
-*June 2026 – Present*
+*June 2026 – September 2026*
 
 Customer-facing features in a large-scale React/TypeScript e-commerce monorepo powering the mobile and desktop web shops, with a gRPC data layer and container/presentational package architecture.
 
-- Delivered the loyalty Status Program end-to-end — gRPC client integration, deep-linked routing, mobile and desktop views — from API stub to production rollout inside the Coins wallet.
-- Extended the A/B testing infrastructure with dynamic activation of server-side experiments and shipped experiment winners; hardened the GA4-scale analytics layer by eliminating duplicate events and enforcing event-schema correctness.
+- Built the frontend of a new loyalty Status Program inside the Coins wallet — gRPC stub layer ahead of the backend, feature module, deep-link routing, skeleton loading and a pixel-matched glass-card design system — covered with Storybook and integration tests; handed over in final review.
+- Built a Figma-to-code icon migration pipeline (Node.js, Figma REST API) that replaced ~120 shared icons with zero call-site changes.
+- Delivered the mobile add-to-basket CTA experiment end to end — SSR for multi-size products, size selection, captcha retry, accessibility — with Cypress E2E and integration tests.
+- Replaced per-experiment feature flags with prefix-based A/B activation, cutting frontend config work per new experiment to zero; rolled out winners.
 
-**Stack:** React, TypeScript, Monorepo (Yarn workspaces), Linaria, React Query, Zustand, gRPC, Storybook, Jest, RTL, Cypress, GitLab CI
+**Stack:** React, TypeScript, Linaria, gRPC, Monorepo (Yarn workspaces), Node.js, Storybook, Jest, RTL, Cypress, GitLab CI, Datadog
 
 ### SelectCode GmbH
 **Fullstack Developer** · Contract · Remote · meingpt.com
-*December 2025 – March 2026*
+*December 2025 – April 2026*
 
 An enterprise-grade, privacy-focused AI platform with RAG capabilities and multi-LLM support.
 
@@ -54,8 +56,9 @@ Four years leading frontend for a loyalty and benefits platform, run alongside p
 - Led a team of 5 and architected a scalable React application framework that cut client onboarding from 4 months to 30 minutes.
 - Built a UI Editor for real-time content updates across web and native, serving 1M+ monthly active users.
 - Designed and owned the full load-testing suite — smoke, stress, soak and spike — for SSR and GraphQL services using k6 and Grafana Cloud.
+- Led the WCAG accessibility migration across the platform — audited components, defined remediation standards, and drove implementation to compliance across web and native apps.
 
-**Stack:** TypeScript, React, Ionic, React Native, Next.js, Node.js, Kotlin, GraphQL, MongoDB, Jest, Cypress, AWS, k6
+**Stack:** TypeScript, React, Vue 2/3, Ionic, React Native, Next.js, Node.js, Kotlin, GraphQL, MongoDB, Jest, Cypress, AWS, k6
 
 ### eBay GmbH (Adevinta)
 **Senior React Developer** · Contract · Remote · kijijiautos.ca
@@ -160,6 +163,14 @@ Where it started — e-commerce plugin work.
 
 **Stack:** Magento, PHP
 
+## Projects
+
+**[Ask Andrii](https://ask-andrii.vercel.app/)** — voice agent demo · 2026 · [source](https://github.com/andrii-sirko/ask-andrii)
+
+A voice agent built on ElevenLabs Agents that answers questions about this CV from a RAG knowledge base and drives the UI while it talks, through client tools (highlightProject, filterByTech, showContact). The browser never sees an API key: a Next.js route mints a short-lived signed URL, throttled per IP. Has a text mode for use without a microphone; the agent config, tools and knowledge base live in the repo.
+
+**Stack:** Next.js, React, TypeScript, ElevenLabs Agents, RAG, Tailwind, Vitest, Vercel
+
 ## Education
 
 **Lviv Polytechnic National University** — MSc Computer Science · Lviv, Ukraine · 2010–2015
@@ -170,7 +181,7 @@ using the WinAPI.
 
 ## Languages
 
-Ukrainian (native) · English (fluent, B2) · German (fluent, C1)
+Ukrainian (native) · English (fluent, C1) · German (fluent, C1)
 
 ## Interests
 
