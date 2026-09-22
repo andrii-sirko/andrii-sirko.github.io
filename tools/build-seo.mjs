@@ -8,7 +8,7 @@
  * JavaScript, so anything only rendered by main.js is invisible to them. This
  * writes the same data into static HTML and plain text:
  *
- *   index.html    the engagement history block + the JSON-LD graph
+ *   index.html    the outcomes board, the experience section + the JSON-LD graph
  *   llms.txt      markdown summary for LLM retrieval
  *   cv.md         full plain-text CV
  *   sitemap.xml   lastmod bump
@@ -21,7 +21,7 @@ import { readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
-import { ENGAGEMENTS, SKILL_GROUPS } from '../assets/js/data.js';
+import { OUTCOMES, PRACTICE, EMPLOYMENT, SKILL_GROUPS } from '../assets/js/data.js';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const CHECK = process.argv.includes('--check');
@@ -38,11 +38,13 @@ const PERSON = {
   linkedin: 'https://www.linkedin.com/in/andrii-sirko',
   github: 'https://github.com/andrii-sirko',
   summary:
-    'Senior frontend engineer and full-stack contractor with over ten years building '
-    + 'production React applications for European technology companies including ABOUT YOU, '
-    + 'eBay (Adevinta), Daimler/smart, Volkswagen/Audi and Careem. Frontend lead at 1M+ '
-    + 'monthly-active-user scale and engineer on ABOUT YOU’s 40M+ MAU e-commerce '
-    + 'platform, specialising in TypeScript, component architecture, monorepos and performance.'
+    'Senior React/TypeScript engineer with 10+ years in production e-commerce, fintech, '
+    + 'automotive and SaaS products. Frontend Lead who owned the architecture of a 1M+ MAU '
+    + 'platform for 4 years (client onboarding cut from 4 months to 30 minutes), and engineer '
+    + 'on ABOUT YOU’s 40M+ MAU shop. Freelance contractor since 2019 with repeat multi-year '
+    + 'engagements for companies including ABOUT YOU, Mehrwerk, eBay (Adevinta) and Accenture '
+    + '(VW, Audi, smart / Daimler); strong in component architecture, performance, testing '
+    + 'and, recently, RAG/LLM product features.'
 };
 
 /* Side project shown in the "Live demo" section. Hand-written, like the work cards. */
@@ -71,33 +73,77 @@ const pretty = (ym) => {
 
 const period = (e) => `${pretty(e.start)} – ${e.end ? pretty(e.end) : 'Present'}`;
 
-/* ── index.html: static engagement history ──────────────────────────────── */
+const SHORT = MONTHS.map((m) => m.slice(0, 3));
+const brief = (ym) => {
+  const [y, m] = ym.split('-').map(Number);
+  return `${SHORT[m - 1]} ${y}`;
+};
 
-function engagementsHtml() {
-  const items = ENGAGEMENTS.map((e) => {
-    const when = `<span class="rec__when"><time datetime="${e.start}">${pretty(e.start)}</time> – `
-      + (e.end
-        ? `<time datetime="${e.end}">${pretty(e.end)}</time>`
-        : 'Present')
-      + '</span>';
+const when = (e, fmt = pretty) =>
+  `<time datetime="${e.start}">${fmt(e.start)}</time> — `
+  + (e.end ? `<time datetime="${e.end}">${fmt(e.end)}</time>` : 'Present');
 
-    const where = e.url
-      ? ` · <a href="${esc(e.url)}" target="_blank" rel="noopener">${esc(e.site)}</a>`
-      : '';
+/* ── index.html: outcomes board ─────────────────────────────────────────── */
 
-    return `      <li class="rec">
-        <h4 class="rec__co">${esc(e.company)}</h4>
-        ${when}
-        <p class="rec__role">${esc(e.role)} · ${esc(e.kind)} · ${esc(e.place)}${where}</p>
-        <p class="rec__sum">${esc(e.summary)}</p>
-        <ul class="rec__points">
-${e.bullets.map((b) => `          <li>${esc(b)}</li>`).join('\n')}
+function outcomesHtml() {
+  const items = OUTCOMES.map((o) => `        <li class="outcome" data-reveal>
+          <p class="outcome__for"><span class="outcome__co">${esc(o.client)}</span><span class="outcome__role">${esc(o.role)}</span></p>
+          <p class="outcome__metric">${esc(o.metric)}</p>
+          <h3 class="outcome__title">${esc(o.title)}</h3>
+          <p class="outcome__body">${esc(o.body)}</p>
+          <ul class="case__tags">${o.tags.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>
+        </li>`);
+
+  return `      <ol class="outcomes">\n${items.join('\n')}\n      </ol>`;
+}
+
+/* ── index.html: experience ─────────────────────────────────────────────── */
+
+/* One row per client or employer. Clients of the practice have no dates of
+   their own; full-time roles do. */
+function roleHtml(e) {
+  const site = e.url
+    ? ` · <a href="${esc(e.url)}" target="_blank" rel="noopener">${esc(e.site)}</a>`
+    : '';
+  const terms = e.kind ? ` · ${esc(e.kind)} · ${esc(e.place)}` : '';
+
+  return `          <li class="client" data-id="${e.id}" data-reveal>
+            <div class="client__head">
+              <h4 class="client__co">${esc(e.company)}</h4>
+              <p class="client__tag">${esc(e.tagline)}</p>
+${e.start ? `              <p class="client__when">${when(e, brief)}</p>\n` : ''}\
+              <p class="client__role">${esc(e.role)}${terms}${site}</p>
+            </div>
+            <div class="client__main">
+              <ul class="client__points">
+${e.bullets.map((b) => `                <li>${esc(b)}</li>`).join('\n')}
+              </ul>
+              <p class="client__stack"><span>Stack</span> ${e.stack.map(esc).join(' · ')}</p>
+            </div>
+          </li>`;
+}
+
+function experienceHtml() {
+  return `      <article class="practice" data-experience>
+        <header class="practice__head" data-reveal>
+          <div>
+            <h3 class="practice__title">${esc(PRACTICE.title)}</h3>
+            <p class="practice__meta">${esc(PRACTICE.kind)} · ${esc(PRACTICE.place)}</p>
+          </div>
+          <p class="practice__when">${when(PRACTICE, brief)}</p>
+          <p class="practice__sum">${esc(PRACTICE.summary)} Clients and outcomes:</p>
+        </header>
+        <ul class="clients">
+${PRACTICE.clients.map(roleHtml).join('\n')}
         </ul>
-        <p class="rec__stack"><span>Stack</span> ${e.stack.map(esc).join(' · ')}</p>
-      </li>`;
-  });
+      </article>
 
-  return `    <ol class="records">\n${items.join('\n')}\n    </ol>`;
+      <section class="earlier" data-experience>
+        <h3 class="earlier__title" data-reveal>Before the practice — full-time roles</h3>
+        <ul class="clients">
+${EMPLOYMENT.map(roleHtml).join('\n')}
+        </ul>
+      </section>`;
 }
 
 /* ── index.html: JSON-LD ────────────────────────────────────────────────── */
@@ -153,11 +199,11 @@ function jsonLd() {
           occupationLocation: { '@type': 'Country', name: 'Germany' },
           skills: skills.join(', ')
         },
-        worksFor: ENGAGEMENTS.filter((e) => !e.end).map((e) => ({
+        worksFor: PRACTICE.end ? [] : [{
           '@type': 'Organization',
-          name: e.company,
-          ...(e.url ? { url: e.url } : {})
-        })),
+          name: `${PERSON.name} — ${PRACTICE.kind}`,
+          url: `${SITE}/`
+        }],
         hasCredential: {
           '@type': 'EducationalOccupationalCredential',
           credentialCategory: 'degree',
@@ -167,24 +213,35 @@ function jsonLd() {
       },
       {
         '@type': 'ItemList',
-        '@id': `${SITE}/#engagements`,
-        name: 'Professional engagements',
-        numberOfItems: ENGAGEMENTS.length,
+        '@id': `${SITE}/#experience`,
+        name: 'Professional experience',
+        numberOfItems: 1 + EMPLOYMENT.length,
         itemListOrder: 'https://schema.org/ItemListOrderDescending',
-        itemListElement: ENGAGEMENTS.map((e, i) => ({
+        itemListElement: [
+          {
+            role: PRACTICE.title,
+            start: PRACTICE.start,
+            end: PRACTICE.end,
+            description: `${PRACTICE.summary} Clients: ${PRACTICE.clients.map((c) => c.company).join(', ')}.`,
+            org: { '@type': 'Organization', name: `${PERSON.name} — ${PRACTICE.kind}`, url: `${SITE}/` }
+          },
+          ...EMPLOYMENT.map((e) => ({
+            role: e.role,
+            start: e.start,
+            end: e.end,
+            description: e.bullets.join(' '),
+            org: { '@type': 'Organization', name: e.company, ...(e.url ? { url: e.url } : {}) }
+          }))
+        ].map((r, i) => ({
           '@type': 'ListItem',
           position: i + 1,
           item: {
             '@type': 'OrganizationRole',
-            roleName: e.role,
-            startDate: e.start,
-            ...(e.end ? { endDate: e.end } : {}),
-            description: e.summary,
-            memberOf: {
-              '@type': 'Organization',
-              name: e.company,
-              ...(e.url ? { url: e.url } : {})
-            }
+            roleName: r.role,
+            startDate: r.start,
+            ...(r.end ? { endDate: r.end } : {}),
+            description: r.description,
+            memberOf: r.org
           }
         }))
       }
@@ -194,6 +251,14 @@ function jsonLd() {
   return JSON.stringify(graph, null, 2);
 }
 
+/* A client of the practice, in Markdown. No dates — the practice carries them. */
+const clientMd = (c) => `**${c.company}** — ${c.tagline}
+${c.role}${c.site ? ` · ${c.site}` : ''}
+
+${c.bullets.map((b) => `- ${b}`).join('\n')}
+
+Stack: ${c.stack.join(', ')}`;
+
 /* ── llms.txt ───────────────────────────────────────────────────────────── */
 
 function llmsTxt() {
@@ -202,8 +267,8 @@ function llmsTxt() {
 > ${PERSON.summary}
 
 ${PERSON.name} is a senior frontend engineer and full-stack contractor based in \
-${PERSON.city}, Germany, working remotely across European time zones and available \
-for contract work.
+${PERSON.city}, Germany. He has run a single freelance practice since ${pretty(PRACTICE.start)}, \
+works remotely across European time zones and is available for contract work.
 
 - Website: ${SITE}/
 - Email: ${PERSON.email}
@@ -218,26 +283,25 @@ ${SKILL_GROUPS.map((g) => `- **${g.label}**: ${g.items.join(', ')}`).join('\n')}
 
 ## Notable outcomes
 
-- Reduced client onboarding from 4 months to 30 minutes by architecting a reusable
-  React application framework (Mehrwerk).
-- Built a UI Editor serving real-time content to 1M+ monthly active users across web
-  and native platforms (Mehrwerk).
-- Shipped a white-label Dealer Search used on Audi.de across 90+ markets, integrated
-  as a micro-frontend (Accenture · VW / Audi).
-- Owned a full k6 load-testing suite — smoke, stress, soak and spike — for SSR and
-  GraphQL services (Mehrwerk).
-- Led a team of 5 engineers as Frontend Lead over a four-year engagement (Mehrwerk).
+${OUTCOMES.map((o) => `- **${o.metric}** — ${o.title}. ${o.body} (${o.client})`).join('\n')}
 
 ## Live demo
 
 - [Ask Andrii](${DEMO.url}) — ${DEMO.blurb} Source: ${DEMO.repo}
 
-## Engagement history
+## Experience
 
-${ENGAGEMENTS.map((e) => `### ${e.company} — ${e.role}
+### ${PRACTICE.title}
+${period(PRACTICE)} · ${PRACTICE.kind} · ${PRACTICE.place}
+
+${PRACTICE.summary} Clients and outcomes:
+
+${PRACTICE.clients.map(clientMd).join('\n\n')}
+
+${EMPLOYMENT.map((e) => `### ${e.company} — ${e.role}
 ${period(e)} · ${e.kind} · ${e.place}${e.site ? ` · ${e.site}` : ''}
 
-${e.summary}
+${e.tagline}.
 
 ${e.bullets.map((b) => `- ${b}`).join('\n')}
 
@@ -272,11 +336,17 @@ ${SKILL_GROUPS.map((g) => `**${g.label}** — ${g.items.join(' · ')}`).join('\n
 
 ## Experience
 
-${ENGAGEMENTS.map((e) => `### ${e.company}
+### ${PRACTICE.title}
+${PRACTICE.kind} · ${PRACTICE.place}
+*${period(PRACTICE)}*
+
+${PRACTICE.summary} Clients and outcomes:
+
+${PRACTICE.clients.map(clientMd).join('\n\n')}
+
+${EMPLOYMENT.map((e) => `### ${e.company} — ${e.tagline.toLowerCase()}
 **${e.role}** · ${e.kind} · ${e.place}${e.site ? ` · ${e.site}` : ''}
 *${period(e)}*
-
-${e.summary}
 
 ${e.bullets.map((b) => `- ${b}`).join('\n')}
 
@@ -316,13 +386,14 @@ function replaceBlock(html, key, body) {
   const close = `<!-- ${key}:end -->`;
   const re = new RegExp(`${open}[\\s\\S]*?${close}`);
   if (!re.test(html)) throw new Error(`Missing markers for "${key}" in index.html`);
-  return html.replace(re, `${open}\n${body}\n    ${close}`);
+  return html.replace(re, () => `${open}\n${body}\n    ${close}`);
 }
 
 const outputs = [];
 
 let html = await readFile(join(ROOT, 'index.html'), 'utf8');
-html = replaceBlock(html, 'seo:engagements', engagementsHtml());
+html = replaceBlock(html, 'seo:outcomes', outcomesHtml());
+html = replaceBlock(html, 'seo:experience', experienceHtml());
 html = replaceBlock(html, 'seo:jsonld',
   `    <script type="application/ld+json">\n${jsonLd()}\n    </script>`);
 
