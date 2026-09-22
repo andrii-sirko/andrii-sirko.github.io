@@ -182,5 +182,5 @@ python3 -m http.server 4321
 
 ## Deploying
 
-GitHub Pages serves `master` at the repo root. Push and it's live; there is no
+GitHub Pages serves `main` at the repo root. Push and it's live; there is no
 build to run and no Actions workflow to wait on.

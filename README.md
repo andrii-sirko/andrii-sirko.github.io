@@ -64,8 +64,8 @@ node tools/build-og.mjs
 
 ## Deploy
 
-GitHub Pages serves the `master` branch from the repository root (Deploy from a
-branch → `master` / `/ (root)`). Push and it's live; there's no Actions workflow.
+GitHub Pages serves the `main` branch from the repository root (Deploy from a
+branch → `main` / `/ (root)`). Push and it's live; there's no Actions workflow.
 
 ## What's in here
 
