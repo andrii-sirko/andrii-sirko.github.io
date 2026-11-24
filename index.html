@@ -20,7 +20,7 @@
 <meta property="og:image" content="https://andrii-sirko.github.io/assets/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Andrii Sirko, Senior / Lead Fullstack Engineer — 12 years shipping, 7 years freelance, 40M+ peak MAU, 90+ markets.">
+<meta property="og:image:alt" content="Andrii Sirko, Senior / Lead Fullstack Engineer — 12 years shipping, 7 years of own practice, 40M+ peak MAU, 90+ markets.">
 <meta property="profile:first_name" content="Andrii">
 <meta property="profile:last_name" content="Sirko">
 <meta name="twitter:card" content="summary_large_image">
@@ -309,9 +309,10 @@
         <div class="hero__aside">
           <p class="hero__pitch" data-reveal>
             Ten years of React and TypeScript in production, freelance since 2019 on multi-year
-            and repeat engagements. I take on frontends that have to hold up — large monorepos,
-            real traffic, and teams that need a system rather than a patch — and, lately, the
-            AI features that get built on top of them.
+            and repeat engagements — including 1.5 years as full-time Frontend Lead at Mehrwerk.
+            I take on frontends that have to hold up — large monorepos, real traffic, and teams
+            that need a system rather than a patch — and, lately, the AI features that get built
+            on top of them.
           </p>
 
           <div class="hero__actions" data-reveal>
@@ -327,7 +328,7 @@
           <dd><span data-count="12" data-derive="years">12</span></dd>
         </div>
         <div class="readout">
-          <dt>Years freelance</dt>
+          <dt>Own practice</dt>
           <dd><span data-count="7" data-derive="freelance">7</span></dd>
         </div>
         <div class="readout">
@@ -365,6 +366,13 @@
           <ul class="case__tags"><li>React</li><li>Next.js</li><li>Ionic</li><li>GraphQL</li></ul>
         </li>
         <li class="outcome" data-reveal>
+          <p class="outcome__for"><span class="outcome__co">SelectCode · meinGPT</span><span class="outcome__role">Enterprise AI platform, ~50 companies</span></p>
+          <p class="outcome__metric">20k+ users</p>
+          <h3 class="outcome__title">Token metering became usage limits and a paid add-on</h3>
+          <p class="outcome__body">Designed and shipped LLM token-usage metering across a multi-provider platform (OpenAI, Gemini, Anthropic, Azure) — a Prisma data model, a tRPC service and AI-middleware hooks capturing provider-reported and estimated tokens, including failed and rate-limited calls. It became the basis for per-company usage limits and a new revenue stream from paid extra tokens, purchasable through a Shopify integration I built.</p>
+          <ul class="case__tags"><li>tRPC</li><li>Prisma</li><li>Vercel AI SDK</li><li>Multi-LLM</li></ul>
+        </li>
+        <li class="outcome" data-reveal>
           <p class="outcome__for"><span class="outcome__co">ABOUT YOU</span><span class="outcome__role">40M+ MAU e-commerce</span></p>
           <p class="outcome__metric">+5%</p>
           <h3 class="outcome__title">Mobile add-to-basket rate, shipped to 100% of traffic</h3>
@@ -391,13 +399,6 @@
           <h3 class="outcome__title">Content updates without a developer in the loop</h3>
           <p class="outcome__body">Built a UI Editor that lets non-technical editors publish content changes to web and native apps in real time, for a platform with 1M+ monthly active users.</p>
           <ul class="case__tags"><li>React</li><li>React Native</li><li>GraphQL</li><li>MongoDB</li></ul>
-        </li>
-        <li class="outcome" data-reveal>
-          <p class="outcome__for"><span class="outcome__co">SelectCode · meinGPT</span><span class="outcome__role">Enterprise AI platform, ~50 companies</span></p>
-          <p class="outcome__metric">20k+ users</p>
-          <h3 class="outcome__title">Token metering became usage limits and a paid add-on</h3>
-          <p class="outcome__body">An enterprise AI platform used by ~50 companies and 20k+ users had no view of what its LLM calls cost. I shipped token-usage metering across a multi-provider platform (OpenAI, Gemini, Anthropic, Azure) — a Prisma data model, a tRPC service and AI-middleware hooks capturing provider-reported and estimated tokens, including failed and rate-limited calls. It became the basis for per-company usage limits and a new revenue stream from paid extra tokens, purchasable through a Shopify integration I built.</p>
-          <ul class="case__tags"><li>tRPC</li><li>Prisma</li><li>Vercel AI SDK</li><li>Multi-LLM</li></ul>
         </li>
       </ol>
     <!-- seo:outcomes:end -->
@@ -467,6 +468,8 @@
             </div>
             <div class="client__main">
               <ul class="client__points">
+                <li>Built streaming chat with tool calling (Vercel AI SDK) and collaborative features — shared AI assistants, chat workflows — for a privacy-focused RAG platform with multi-LLM support (React, Zustand).</li>
+                <li>Built a custom Data Vault ingestion service (Python/FastAPI): document chunking (LangChain text splitters) and loading into a Weaviate vector store, feeding the platform’s retrieval pipeline.</li>
                 <li>Implemented secure tRPC/Prisma endpoints for organisation hierarchies, RBAC (Lucia Auth) and Stripe subscriptions — the billing and permission layer enterprise customers are sold on.</li>
               </ul>
               <p class="client__stack"><span>Stack</span> TypeScript · React · Next.js · NestJS · tRPC · Prisma · PostgreSQL · Python · FastAPI · Weaviate · pgvector · Langfuse · Vercel AI SDK · Playwright · RAG · OpenAI API · Kubernetes</p>
@@ -755,10 +758,11 @@
         <p class="eyebrow">About</p>
         <h2 class="head__title">Ten years, one discipline</h2>
         <p class="about__body">
-          I’ve run one freelance practice since 2019 — long engagements, and clients who come
-          back — which means I join codebases that already have history and constraints. The job is rarely a rewrite. It’s reading what’s
-          there, finding the seam, and leaving the team with something they can extend after
-          I’m gone.
+          Since 2019 I’ve worked mostly freelance, in one practice — long engagements, and
+          clients who come back, one of them for 1.5 years as full-time Frontend Lead — which
+          means I join codebases that already have history and constraints. The job is rarely a
+          rewrite. It’s reading what’s there, finding the seam, and leaving the team with
+          something they can extend after I’m gone.
         </p>
         <p class="about__body">
           I’m based in Berlin, Germany, and work remotely across European time zones.

@@ -301,8 +301,9 @@ function llmsTxt() {
 > ${PERSON.summary}
 
 ${PERSON.name} is a senior / lead fullstack engineer based in ${PERSON.city}, Germany. He has \
-run a single freelance practice since ${pretty(PRACTICE.start)}, works remotely across European \
-time zones, and is open to freelance (B2B) engagements and permanent Senior, Staff or Lead roles.
+run his own practice since ${pretty(PRACTICE.start)}, mostly freelance and including 1.5 years as \
+full-time Frontend Lead at Mehrwerk. He works remotely across European time zones, and is open to \
+freelance (B2B) engagements and permanent Senior, Staff or Lead roles.
 
 - Website: ${SITE}/
 - Email: ${PERSON.email}

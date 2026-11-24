@@ -2,7 +2,7 @@
 
 > Senior Fullstack Engineer and former Frontend Lead with 10+ years of React and TypeScript. For 4 years I owned the architecture of a 1M+ MAU loyalty platform and led a team of five; the multi-tenant framework I designed cut client onboarding from 4 months to 30 minutes. Most recently I shipped experimentation and loyalty features on ABOUT YOU’s 40M+ MAU shop, and streaming chat, tool calling and RAG ingestion on an enterprise AI platform used by ~50 companies. I work with Claude Code every day and review AI-generated code through tests and code review. Open to freelance (B2B) engagements and permanent Senior, Staff or Lead roles.
 
-Andrii Sirko is a senior / lead fullstack engineer based in Berlin, Germany. He has run a single freelance practice since September 2019, works remotely across European time zones, and is open to freelance (B2B) engagements and permanent Senior, Staff or Lead roles.
+Andrii Sirko is a senior / lead fullstack engineer based in Berlin, Germany. He has run his own practice since September 2019, mostly freelance and including 1.5 years as full-time Frontend Lead at Mehrwerk. He works remotely across European time zones, and is open to freelance (B2B) engagements and permanent Senior, Staff or Lead roles.
 
 - Website: https://andrii-sirko.github.io/
 - Email: andrii.sirko@gmail.com
@@ -23,11 +23,11 @@ Andrii Sirko is a senior / lead fullstack engineer based in Berlin, Germany. He 
 ## Notable outcomes
 
 - **4 mo → 30 min** — Client onboarding became a configuration task. Designed a multi-tenant React application framework that turned each new client from a four-month project into a half-hour of configuration. (Mehrwerk)
+- **20k+ users** — Token metering became usage limits and a paid add-on. Designed and shipped LLM token-usage metering across a multi-provider platform (OpenAI, Gemini, Anthropic, Azure) — a Prisma data model, a tRPC service and AI-middleware hooks capturing provider-reported and estimated tokens, including failed and rate-limited calls. It became the basis for per-company usage limits and a new revenue stream from paid extra tokens, purchasable through a Shopify integration I built. (SelectCode · meinGPT)
 - **+5%** — Mobile add-to-basket rate, shipped to 100% of traffic. Owned the add-to-basket CTA experiment end to end — SSR variant for multi-size products, size selection, captcha retry, a11y, Cypress E2E. The winning variant lifted the rate by 5% (relative). (ABOUT YOU)
 - **days–weeks → same day** — Frontend removed from the A/B experiment critical path. Replaced per-experiment feature flags with prefix-based activation, so new experiments launch with no frontend release. Enables ~6 experiments a month across the growth and recommendation teams. (ABOUT YOU)
 - **90+ markets** — One dealer search, two automotive brands. A white-label Dealer Search built for Volkswagen, then integrated into Audi as a micro-frontend rather than a fork. Live on Audi.de across more than ninety markets. (Accenture · VW / Audi)
 - **1M+ MAU** — Content updates without a developer in the loop. Built a UI Editor that lets non-technical editors publish content changes to web and native apps in real time, for a platform with 1M+ monthly active users. (Mehrwerk)
-- **20k+ users** — Token metering became usage limits and a paid add-on. An enterprise AI platform used by ~50 companies and 20k+ users had no view of what its LLM calls cost. I shipped token-usage metering across a multi-provider platform (OpenAI, Gemini, Anthropic, Azure) — a Prisma data model, a tRPC service and AI-middleware hooks capturing provider-reported and estimated tokens, including failed and rate-limited calls. It became the basis for per-company usage limits and a new revenue stream from paid extra tokens, purchasable through a Shopify integration I built. (SelectCode · meinGPT)
 
 ## Live demo
 

@@ -15,6 +15,20 @@ export const OUTCOMES = [
     tags: ['React', 'Next.js', 'Ionic', 'GraphQL']
   },
   {
+    id: 'metering',
+    metric: '20k+ users',
+    title: 'Token metering became usage limits and a paid add-on',
+    body:
+      'Designed and shipped LLM token-usage metering across a multi-provider platform (OpenAI, Gemini, '
+      + 'Anthropic, Azure) — a Prisma data model, a tRPC service and AI-middleware hooks capturing '
+      + 'provider-reported and estimated tokens, including failed and rate-limited calls. It became the '
+      + 'basis for per-company usage limits and a new revenue stream from paid extra tokens, purchasable '
+      + 'through a Shopify integration I built.',
+    client: 'SelectCode · meinGPT',
+    role: 'Enterprise AI platform, ~50 companies',
+    tags: ['tRPC', 'Prisma', 'Vercel AI SDK', 'Multi-LLM']
+  },
+  {
     id: 'basket',
     metric: '+5%',
     title: 'Mobile add-to-basket rate, shipped to 100% of traffic',
@@ -53,21 +67,6 @@ export const OUTCOMES = [
     client: 'Mehrwerk',
     role: 'Frontend Lead · team of 5',
     tags: ['React', 'React Native', 'GraphQL', 'MongoDB']
-  },
-  {
-    id: 'metering',
-    metric: '20k+ users',
-    title: 'Token metering became usage limits and a paid add-on',
-    body:
-      'An enterprise AI platform used by ~50 companies and 20k+ users had no view of what its LLM '
-      + 'calls cost. I shipped token-usage metering across a multi-provider platform (OpenAI, Gemini, '
-      + 'Anthropic, Azure) — a Prisma data model, a tRPC service and AI-middleware hooks capturing '
-      + 'provider-reported and estimated tokens, including failed and rate-limited calls. It became the '
-      + 'basis for per-company usage limits and a new revenue stream from paid extra tokens, purchasable '
-      + 'through a Shopify integration I built.',
-    client: 'SelectCode · meinGPT',
-    role: 'Enterprise AI platform, ~50 companies',
-    tags: ['tRPC', 'Prisma', 'Vercel AI SDK', 'Multi-LLM']
   }
 ];
 
@@ -151,6 +150,8 @@ export const PRACTICE = {
         'Implemented secure tRPC/Prisma endpoints for organisation hierarchies, RBAC (Lucia Auth) and Stripe subscriptions — the billing and permission layer enterprise customers are sold on.'
       ],
       highlights: [
+        'Built streaming chat with tool calling (Vercel AI SDK) and collaborative features — shared AI assistants, chat workflows — for a privacy-focused RAG platform with multi-LLM support (React, Zustand).',
+        'Built a custom Data Vault ingestion service (Python/FastAPI): document chunking (LangChain text splitters) and loading into a Weaviate vector store, feeding the platform’s retrieval pipeline.',
         'Implemented secure tRPC/Prisma endpoints for organisation hierarchies, RBAC (Lucia Auth) and Stripe subscriptions — the billing and permission layer enterprise customers are sold on.'
       ],
       stack: [
