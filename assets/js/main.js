@@ -240,11 +240,22 @@ function initChrome() {
   const yr = $('[data-year]');
   if (yr) yr.textContent = new Date().getFullYear();
 
-  const copyBtn = $('[data-copy]');
-  if (copyBtn) {
-    copyBtn.addEventListener('click', async () => {
-      const hint = $('[data-copy-hint]', copyBtn);
-      const text = copyBtn.dataset.copy;
+  // A tel: link only does something on a device that can place a call. On a
+  // desktop it is a dead click, so there the number is copied instead.
+  const CAN_CALL = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+
+  document.querySelectorAll('[data-copy]').forEach((el) => {
+    const isTel = el.tagName === 'A' && (el.getAttribute('href') || '').startsWith('tel:');
+    if (isTel && CAN_CALL) return;              // leave tap-to-call alone
+
+    const hint = $('[data-copy-hint]', el);
+    if (!hint) return;
+    if (isTel) hint.textContent = 'Copy';
+    const idle = hint.textContent;
+
+    el.addEventListener('click', async (e) => {
+      if (isTel) e.preventDefault();
+      const text = el.dataset.copy;
 
       let ok = false;
       if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -260,19 +271,19 @@ function initChrome() {
       if (ok) {
         hint.textContent = 'Copied';
       } else {
-        // Last resort: select the address so the keyboard shortcut works.
-        selectText($('.link__v', copyBtn));
+        // Last resort: select the value so the keyboard shortcut works.
+        selectText($('.link__v', el));
         hint.textContent = `Press ${MOD}C`;
       }
 
       hint.classList.add('is-done');
-      clearTimeout(copyBtn._t);
-      copyBtn._t = setTimeout(() => {
-        hint.textContent = 'Copy';
+      clearTimeout(el._t);
+      el._t = setTimeout(() => {
+        hint.textContent = idle;
         hint.classList.remove('is-done');
       }, 1800);
     });
-  }
+  });
 }
 
 /* ── go ─────────────────────────────────────────────────────────────────── */

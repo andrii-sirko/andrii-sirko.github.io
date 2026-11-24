@@ -758,7 +758,7 @@ code { font-family: var(--mono); font-size: .9em; color: var(--signal); }
   transition: opacity .25s var(--ease), transform .25s var(--ease);
 }
 .link:hover .link__hint, .link:focus-visible .link__hint { opacity: 1; transform: none; }
-.link--copy .link__hint.is-done { opacity: 1; transform: none; }
+.link .link__hint.is-done { opacity: 1; transform: none; }
 
 .contact__where {
   margin-top: 2.5rem;
