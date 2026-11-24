@@ -21,7 +21,9 @@ import { readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
-import { OUTCOMES, PRACTICE, EMPLOYMENT, SKILL_GROUPS } from '../assets/js/data.js';
+import {
+  OUTCOMES, PRACTICE, EMPLOYMENT, ROLES, SKILL_GROUPS, SKILL_ALIASES, CV_SKILLS
+} from '../assets/js/data.js';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const CHECK = process.argv.includes('--check');
@@ -29,7 +31,8 @@ const CHECK = process.argv.includes('--check');
 const SITE = 'https://andrii-sirko.github.io';
 const PERSON = {
   name: 'Andrii Sirko',
-  title: 'Senior Frontend Engineer · Full-Stack Contractor',
+  title: 'Senior / Lead Fullstack Engineer (React/TypeScript · Node.js · AI features)',
+  jobTitle: 'Senior / Lead Fullstack Engineer',
   email: 'andrii.sirko@gmail.com',
   phone: '+49 176 4340 4914',
   city: 'Berlin',
@@ -38,13 +41,14 @@ const PERSON = {
   linkedin: 'https://www.linkedin.com/in/andrii-sirko',
   github: 'https://github.com/andrii-sirko',
   summary:
-    'Senior React/TypeScript engineer with 10+ years in production e-commerce, fintech, '
-    + 'automotive and SaaS products. Frontend Lead who owned the architecture of a 1M+ MAU '
-    + 'platform for 4 years (client onboarding cut from 4 months to 30 minutes), and engineer '
-    + 'on ABOUT YOU’s 40M+ MAU shop. Freelance contractor since 2019 with repeat multi-year '
-    + 'engagements for companies including ABOUT YOU, Mehrwerk, eBay (Adevinta) and Accenture '
-    + '(VW, Audi, smart / Daimler); strong in component architecture, performance, testing '
-    + 'and, recently, RAG/LLM product features.'
+    'Senior Fullstack Engineer and former Frontend Lead with 10+ years of React and '
+    + 'TypeScript. For 4 years I owned the architecture of a 1M+ MAU loyalty platform and led '
+    + 'a team of five; the multi-tenant framework I designed cut client onboarding from 4 '
+    + 'months to 30 minutes. Most recently I shipped experimentation and loyalty features on '
+    + 'ABOUT YOU’s 40M+ MAU shop, and streaming chat, tool calling and RAG ingestion on an '
+    + 'enterprise AI platform used by ~50 companies. I work with Claude Code every day and '
+    + 'review AI-generated code through tests and code review. Open to freelance (B2B) '
+    + 'engagements and permanent Senior, Staff or Lead roles.'
 };
 
 /* Side project shown in the "Live demo" section. Hand-written, like the work cards. */
@@ -116,7 +120,7 @@ ${e.start ? `              <p class="client__when">${when(e, brief)}</p>\n` : ''
             </div>
             <div class="client__main">
               <ul class="client__points">
-${e.bullets.map((b) => `                <li>${esc(b)}</li>`).join('\n')}
+${(e.highlights || e.bullets).map((b) => `                <li>${esc(b)}</li>`).join('\n')}
               </ul>
               <p class="client__stack"><span>Stack</span> ${e.stack.map(esc).join(' · ')}</p>
             </div>
@@ -146,10 +150,40 @@ ${EMPLOYMENT.map(roleHtml).join('\n')}
       </section>`;
 }
 
+/* ── index.html: stack chips ─────────────────────────────────── */
+
+/* Same markup main.js used to inject, written out statically so the section is
+   there without JavaScript. main.js only binds the filter to it. */
+const matchesTech = (role, tech) => {
+  const names = SKILL_ALIASES[tech] || [tech];
+  return role.stack.some((s) => names.some((n) => s.toLowerCase() === n.toLowerCase()));
+};
+
+function stackHtml() {
+  const groups = SKILL_GROUPS.map((g) => {
+    const chips = g.items.map((t) => {
+      const n = ROLES.filter((r) => matchesTech(r, t)).length;
+      if (!n) throw new Error(`Stack chip "${t}" matches no role — fix the spelling or add an alias`);
+      return `          <button class="tech" type="button" data-tech="${esc(t)}" aria-pressed="false">`
+        + `${esc(t)}<span class="tech__n">${n}</span></button>`;
+    }).join('\n');
+
+    return `        <div class="group">
+          <h3 class="group__label">${esc(g.label)}</h3>
+          <div class="group__items">
+${chips}
+          </div>
+        </div>`;
+  });
+
+  return `      <div class="stack" data-stack>\n${groups.join('\n')}\n      </div>`;
+}
+
 /* ── index.html: JSON-LD ────────────────────────────────────────────────── */
 
 function jsonLd() {
-  const skills = [...new Set(SKILL_GROUPS.flatMap((g) => g.items))];
+  const skills = [...new Set(CV_SKILLS.flatMap((g) => g.items))]
+    .filter((s) => s !== 'also PHP');
 
   const graph = {
     '@context': 'https://schema.org',
@@ -170,7 +204,7 @@ function jsonLd() {
         name: PERSON.name,
         givenName: 'Andrii',
         familyName: 'Sirko',
-        jobTitle: 'Senior Frontend Engineer',
+        jobTitle: PERSON.jobTitle,
         description: PERSON.summary,
         url: `${SITE}/`,
         email: `mailto:${PERSON.email}`,
@@ -195,7 +229,7 @@ function jsonLd() {
         },
         hasOccupation: {
           '@type': 'Occupation',
-          name: 'Senior Frontend Engineer',
+          name: PERSON.jobTitle,
           occupationLocation: { '@type': 'Country', name: 'Germany' },
           skills: skills.join(', ')
         },
@@ -266,9 +300,9 @@ function llmsTxt() {
 
 > ${PERSON.summary}
 
-${PERSON.name} is a senior frontend engineer and full-stack contractor based in \
-${PERSON.city}, Germany. He has run a single freelance practice since ${pretty(PRACTICE.start)}, \
-works remotely across European time zones and is available for contract work.
+${PERSON.name} is a senior / lead fullstack engineer based in ${PERSON.city}, Germany. He has \
+run a single freelance practice since ${pretty(PRACTICE.start)}, works remotely across European \
+time zones, and is open to freelance (B2B) engagements and permanent Senior, Staff or Lead roles.
 
 - Website: ${SITE}/
 - Email: ${PERSON.email}
@@ -279,7 +313,7 @@ works remotely across European time zones and is available for contract work.
 
 ## Core expertise
 
-${SKILL_GROUPS.map((g) => `- **${g.label}**: ${g.items.join(', ')}`).join('\n')}
+${CV_SKILLS.map((g) => `- **${g.label}**: ${g.items.join(', ')}`).join('\n')}
 
 ## Notable outcomes
 
@@ -332,21 +366,19 @@ ${PERSON.summary}
 
 ## Core skills
 
-${SKILL_GROUPS.map((g) => `**${g.label}** — ${g.items.join(' · ')}`).join('\n\n')}
+${CV_SKILLS.map((g) => `**${g.label}** — ${g.items.join(' · ')}`).join('\n\n')}
 
 ## Experience
 
-### ${PRACTICE.title}
+### ${PRACTICE.title} — ${brief(PRACTICE.start)} – ${PRACTICE.end ? brief(PRACTICE.end) : 'Present'}
 ${PRACTICE.kind} · ${PRACTICE.place}
-*${period(PRACTICE)}*
 
 ${PRACTICE.summary} Clients and outcomes:
 
 ${PRACTICE.clients.map(clientMd).join('\n\n')}
 
 ${EMPLOYMENT.map((e) => `### ${e.company} — ${e.tagline.toLowerCase()}
-**${e.role}** · ${e.kind} · ${e.place}${e.site ? ` · ${e.site}` : ''}
-*${period(e)}*
+**${e.role}** — ${brief(e.start)} – ${brief(e.end)} · ${e.kind} · ${e.place}${e.site ? ` · ${e.site}` : ''}
 
 ${e.bullets.map((b) => `- ${b}`).join('\n')}
 
@@ -394,6 +426,7 @@ const outputs = [];
 let html = await readFile(join(ROOT, 'index.html'), 'utf8');
 html = replaceBlock(html, 'seo:outcomes', outcomesHtml());
 html = replaceBlock(html, 'seo:experience', experienceHtml());
+html = replaceBlock(html, 'seo:stack', stackHtml());
 html = replaceBlock(html, 'seo:jsonld',
   `    <script type="application/ld+json">\n${jsonLd()}\n    </script>`);
 

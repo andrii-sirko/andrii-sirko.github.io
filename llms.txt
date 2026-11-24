@@ -1,8 +1,8 @@
 # Andrii Sirko
 
-> Senior React/TypeScript engineer with 10+ years in production e-commerce, fintech, automotive and SaaS products. Frontend Lead who owned the architecture of a 1M+ MAU platform for 4 years (client onboarding cut from 4 months to 30 minutes), and engineer on ABOUT YOU’s 40M+ MAU shop. Freelance contractor since 2019 with repeat multi-year engagements for companies including ABOUT YOU, Mehrwerk, eBay (Adevinta) and Accenture (VW, Audi, smart / Daimler); strong in component architecture, performance, testing and, recently, RAG/LLM product features.
+> Senior Fullstack Engineer and former Frontend Lead with 10+ years of React and TypeScript. For 4 years I owned the architecture of a 1M+ MAU loyalty platform and led a team of five; the multi-tenant framework I designed cut client onboarding from 4 months to 30 minutes. Most recently I shipped experimentation and loyalty features on ABOUT YOU’s 40M+ MAU shop, and streaming chat, tool calling and RAG ingestion on an enterprise AI platform used by ~50 companies. I work with Claude Code every day and review AI-generated code through tests and code review. Open to freelance (B2B) engagements and permanent Senior, Staff or Lead roles.
 
-Andrii Sirko is a senior frontend engineer and full-stack contractor based in Berlin, Germany. He has run a single freelance practice since September 2019, works remotely across European time zones and is available for contract work.
+Andrii Sirko is a senior / lead fullstack engineer based in Berlin, Germany. He has run a single freelance practice since September 2019, works remotely across European time zones, and is open to freelance (B2B) engagements and permanent Senior, Staff or Lead roles.
 
 - Website: https://andrii-sirko.github.io/
 - Email: andrii.sirko@gmail.com
@@ -13,21 +13,21 @@ Andrii Sirko is a senior frontend engineer and full-stack contractor based in Be
 
 ## Core expertise
 
-- **Core**: React, TypeScript, Next.js, Node.js
+- **Core**: React, TypeScript, Next.js (App Router), Node.js, Tailwind CSS
 - **Mobile**: Ionic, React Native
-- **Backend**: NestJS, tRPC, GraphQL, gRPC, Prisma, PostgreSQL, MongoDB
+- **Backend**: NestJS, tRPC, GraphQL, gRPC, Prisma, PostgreSQL, MongoDB, Kotlin / Java (Spring Boot), Python (FastAPI), also PHP
 - **Testing**: Jest, Cypress, Playwright, Storybook, k6
-- **Infra**: AWS, Docker, CI/CD, Kubernetes, GitLab CI, Datadog
-- **AI / LLM**: RAG, OpenAI API, LLM Integration
+- **Infra**: AWS, Azure, Docker, Kubernetes, Rancher, CI/CD, GitHub Actions, GitLab CI, Datadog
+- **AI / LLM**: RAG, Embeddings & vector search (Weaviate, pgvector), Vercel AI SDK, Streaming, Tool calling, Langfuse tracing, Multi-LLM (OpenAI, Anthropic, Gemini, Azure), Claude Code
 
 ## Notable outcomes
 
 - **4 mo → 30 min** — Client onboarding became a configuration task. Designed a multi-tenant React application framework that turned each new client from a four-month project into a half-hour of configuration. (Mehrwerk)
 - **+5%** — Mobile add-to-basket rate, shipped to 100% of traffic. Owned the add-to-basket CTA experiment end to end — SSR variant for multi-size products, size selection, captcha retry, a11y, Cypress E2E. The winning variant lifted the rate by 5% (relative). (ABOUT YOU)
-- **Weeks → same day** — Frontend removed from the A/B experiment critical path. Replaced per-experiment feature flags with prefix-based activation, so new experiments launch with no frontend release. Enables ~6 experiments a month across the growth and recommendation teams. (ABOUT YOU)
+- **days–weeks → same day** — Frontend removed from the A/B experiment critical path. Replaced per-experiment feature flags with prefix-based activation, so new experiments launch with no frontend release. Enables ~6 experiments a month across the growth and recommendation teams. (ABOUT YOU)
 - **90+ markets** — One dealer search, two automotive brands. A white-label Dealer Search built for Volkswagen, then integrated into Audi as a micro-frontend rather than a fork. Live on Audi.de across more than ninety markets. (Accenture · VW / Audi)
 - **1M+ MAU** — Content updates without a developer in the loop. Built a UI Editor that lets non-technical editors publish content changes to web and native apps in real time, for a platform with 1M+ monthly active users. (Mehrwerk)
-- **~120 icons** — Web/native icon gap closed in a single release. Automated the migration of the shared icon set to the new icon system (Node.js, Figma REST API, PNG → SVG) — one regression-verified release, no changes for product teams. (ABOUT YOU)
+- **20k+ users** — Token metering became usage limits and a paid add-on. An enterprise AI platform used by ~50 companies and 20k+ users had no view of what its LLM calls cost. I shipped token-usage metering across a multi-provider platform (OpenAI, Gemini, Anthropic, Azure) — a Prisma data model, a tRPC service and AI-middleware hooks capturing provider-reported and estimated tokens, including failed and rate-limited calls. It became the basis for per-company usage limits and a new revenue stream from paid extra tokens, purchasable through a Shopify integration I built. (SelectCode · meinGPT)
 
 ## Live demo
 
@@ -51,22 +51,29 @@ Senior Frontend Engineer · aboutyou.de
 Stack: React, TypeScript, Linaria, gRPC, Monorepo (Yarn workspaces), Node.js, Storybook, Jest, RTL, Cypress, GitLab CI, Datadog
 
 **Mehrwerk GmbH** — B2B2C loyalty & content platform, 1M+ MAU
-Frontend Lead · team of 5 · mehrwerk.de
+Frontend Lead · team of 5 · 4 years (2021–2025), incl. 1.5 years full-time · mehrwerk.de
 
-- Owned the platform architecture: designed a multi-tenant React application framework that cut client onboarding from ~4 months to 30 minutes, turning each new client into a configuration task instead of a project.
+- Owned the platform architecture: wrote the RFC and ADRs for the platform concept, then designed and built the multi-tenant React application framework over 4 years that cut client onboarding from ~4 months to 30 minutes, turning each new client into a configuration task instead of a project.
+- Led a team of five: hired frontend engineers, including my successor as Frontend Lead, ran technical 1:1s, set the coding standards and ran code reviews.
+- Joined the weekly planning session with the CTO and the backend and product leads for the 15-engineer organisation: roadmap priorities, hiring and staffing decisions.
+- Documented the team’s engineering practices, code of conduct and workflows in Confluence, defined how the frontend and backend teams work together, and ran the joint frontend–backend meetings.
 - Built a UI Editor that let non-technical editors publish content changes to web and native apps in real time, removing developer involvement from content updates for 1M+ monthly active users.
 - Designed and owned the k6/Grafana Cloud load-testing suite (smoke, stress, soak, spike) for SSR and GraphQL services, giving every release a measured capacity limit before it hit production.
+- Set up and owned CI/CD on GitHub Actions, Azure and Rancher (Kubernetes); ~3 years of hands-on Azure.
 - Led the WCAG accessibility migration across web and native apps — audit, remediation standards, implementation — bringing the platform to compliance required by enterprise clients.
+- Backend exposure: Kotlin / Java with Spring Boot on the JVM, MongoDB.
 
-Stack: TypeScript, React, Vue 2/3, Ionic, React Native, Next.js, Node.js, Kotlin, GraphQL, MongoDB, Jest, Cypress, AWS, k6
+Stack: TypeScript, React, Vue 2/3, Tailwind CSS, Ionic, React Native, Next.js, Node.js, Kotlin, Java, Spring Boot, GraphQL, MongoDB, Jest, Cypress, AWS, Azure, Rancher, Kubernetes, GitHub Actions, k6
 
-**SelectCode GmbH** — meinGPT, enterprise AI platform
+**SelectCode GmbH** — meinGPT, enterprise AI platform, ~50 companies, 20k+ users
 Fullstack Developer · meingpt.com
 
-- Built collaborative features — shared AI assistants and chat workflows — for a privacy-focused RAG platform with multi-LLM support (React, Zustand).
+- Built streaming chat with tool calling (Vercel AI SDK) and collaborative features — shared AI assistants, chat workflows — for a privacy-focused RAG platform with multi-LLM support (React, Zustand).
+- Built a custom Data Vault ingestion service (Python/FastAPI): document chunking (LangChain text splitters) and loading into a Weaviate vector store, feeding the platform’s retrieval pipeline.
+- Designed and shipped LLM token-usage metering across a multi-provider GenAI platform (OpenAI, Gemini, Anthropic, Azure): Prisma data model, tRPC service and AI-middleware hooks capturing provider-reported and estimated tokens, including failed and rate-limited calls. This became the basis for per-company usage limits and a new revenue stream from paid extra tokens, which I made purchasable through a Shopify integration.
 - Implemented secure tRPC/Prisma endpoints for organisation hierarchies, RBAC (Lucia Auth) and Stripe subscriptions — the billing and permission layer enterprise customers are sold on.
 
-Stack: TypeScript, React, NestJS, tRPC, Prisma, PostgreSQL, Playwright, RAG, OpenAI API, Kubernetes
+Stack: TypeScript, React, Next.js, NestJS, tRPC, Prisma, PostgreSQL, Python, FastAPI, Weaviate, pgvector, Langfuse, Vercel AI SDK, Playwright, RAG, OpenAI API, Kubernetes
 
 **eBay GmbH (Adevinta)** — Kijiji Autos, Canada’s largest auto marketplace
 Senior React Developer · dealer retail team · kijijiautos.ca

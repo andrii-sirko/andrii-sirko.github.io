@@ -114,7 +114,10 @@ function initStack() {
   const rows = document.querySelectorAll('.client[data-id]');
   if (!host) return;
 
-  host.innerHTML = SKILL_GROUPS.map((g) => `
+  // The chips are static HTML, written by tools/build-seo.mjs, so the section
+  // is there without JavaScript. Only render them if that markup is missing.
+  if (!host.querySelector('.tech')) {
+    host.innerHTML = SKILL_GROUPS.map((g) => `
     <div class="group">
       <h3 class="group__label">${esc(g.label)}</h3>
       <div class="group__items">
@@ -126,6 +129,7 @@ function initStack() {
         }).join('')}
       </div>
     </div>`).join('');
+  }
 
   let current = null;
 

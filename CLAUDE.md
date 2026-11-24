@@ -28,7 +28,13 @@ an "N engagements" counter; HR reads those as job-hopping.
 | `PRACTICE` | The freelance practice: title, `start`/`end`, and its `clients` (**no dates on clients**) |
 | `EMPLOYMENT` | Full-time roles before the practice, newest first, with dates |
 | `ROLES` | `PRACTICE.clients` + `EMPLOYMENT` — what the stack chips match against |
+| `CV_SKILLS` | The CV's skills block, verbatim — what `cv.md`, `llms.txt` and the JSON-LD publish |
 | `SKILL_GROUPS`, `SKILL_ALIASES` | The stack chips |
+
+Every role carries the **full CV bullets** in `bullets`. A role may also carry
+`highlights`: the shorter list the *page* shows, for when `bullets` would repeat
+what an outcome card already says. `cv.md` and `llms.txt` always publish
+`bullets`; `index.html` publishes `highlights` when they exist.
 
 The outcomes board and the whole experience section in `index.html` are
 **generated as static HTML** from these by `tools/build-seo.mjs`, along with the
@@ -88,7 +94,12 @@ means "Present".
 
 ## Editing the stack section
 
-`SKILL_GROUPS` in `data.js` defines the chips. A chip matches a role (client or
+The chips are **static HTML**, written into `index.html` by the generator;
+`main.js` only binds the filter to them, so the section is there without
+JavaScript. Re-run the generator after editing them.
+
+`SKILL_GROUPS` in `data.js` defines the chips (`CV_SKILLS` is the separate,
+verbatim list that `cv.md` publishes — keep the two roughly in step). A chip matches a role (client or
 employer) when the chip's name equals one of its `stack` entries,
 case-insensitively. Picking a chip highlights the matching rows under
 Experience in `--depth` blue and dims the rest.
@@ -100,9 +111,9 @@ it to `SKILL_ALIASES`:
 'CI/CD': ['GitLab CI', 'CircleCI', 'Jenkins', 'GitLab'],
 ```
 
-The number on each chip is the match count, computed at render. A chip showing
-`0` means the name doesn't match any `stack` entry — fix the spelling rather
-than removing the chip.
+The number on each chip is the match count, computed by the generator. A chip
+that matches no role now **fails the build** — fix the spelling or add an alias
+rather than removing the chip.
 
 ## Generated files — do not hand-edit
 
@@ -112,6 +123,7 @@ than removing the chip.
 |---|---|
 | `index.html` between `<!-- seo:outcomes:* -->` | The outcomes board |
 | `index.html` between `<!-- seo:experience:* -->` | The practice, its clients, and earlier full-time roles |
+| `index.html` between `<!-- seo:stack:* -->` | The stack chips, with their match counts |
 | `index.html` between `<!-- seo:jsonld:* -->` | schema.org `ProfilePage` + `Person` + `ItemList` graph |
 | `llms.txt` | Markdown summary at `/llms.txt` for LLM retrieval |
 | `cv.md` | Full plain-text CV at `/cv.md` |

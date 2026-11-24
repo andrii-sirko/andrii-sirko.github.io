@@ -1,31 +1,30 @@
 # Andrii Sirko
 
-**Senior Frontend Engineer · Full-Stack Contractor**
+**Senior / Lead Fullstack Engineer (React/TypeScript · Node.js · AI features)**
 
 andrii.sirko@gmail.com · +49 176 4340 4914 · Berlin, Germany
 [andrii-sirko.github.io](https://andrii-sirko.github.io/) · [LinkedIn](https://www.linkedin.com/in/andrii-sirko) · [GitHub](https://github.com/andrii-sirko)
 
-Senior React/TypeScript engineer with 10+ years in production e-commerce, fintech, automotive and SaaS products. Frontend Lead who owned the architecture of a 1M+ MAU platform for 4 years (client onboarding cut from 4 months to 30 minutes), and engineer on ABOUT YOU’s 40M+ MAU shop. Freelance contractor since 2019 with repeat multi-year engagements for companies including ABOUT YOU, Mehrwerk, eBay (Adevinta) and Accenture (VW, Audi, smart / Daimler); strong in component architecture, performance, testing and, recently, RAG/LLM product features.
+Senior Fullstack Engineer and former Frontend Lead with 10+ years of React and TypeScript. For 4 years I owned the architecture of a 1M+ MAU loyalty platform and led a team of five; the multi-tenant framework I designed cut client onboarding from 4 months to 30 minutes. Most recently I shipped experimentation and loyalty features on ABOUT YOU’s 40M+ MAU shop, and streaming chat, tool calling and RAG ingestion on an enterprise AI platform used by ~50 companies. I work with Claude Code every day and review AI-generated code through tests and code review. Open to freelance (B2B) engagements and permanent Senior, Staff or Lead roles.
 
 ## Core skills
 
-**Core** — React · TypeScript · Next.js · Node.js
+**Core** — React · TypeScript · Next.js (App Router) · Node.js · Tailwind CSS
 
 **Mobile** — Ionic · React Native
 
-**Backend** — NestJS · tRPC · GraphQL · gRPC · Prisma · PostgreSQL · MongoDB
+**Backend** — NestJS · tRPC · GraphQL · gRPC · Prisma · PostgreSQL · MongoDB · Kotlin / Java (Spring Boot) · Python (FastAPI) · also PHP
 
 **Testing** — Jest · Cypress · Playwright · Storybook · k6
 
-**Infra** — AWS · Docker · CI/CD · Kubernetes · GitLab CI · Datadog
+**Infra** — AWS · Azure · Docker · Kubernetes · Rancher · CI/CD · GitHub Actions · GitLab CI · Datadog
 
-**AI / LLM** — RAG · OpenAI API · LLM Integration
+**AI / LLM** — RAG · Embeddings & vector search (Weaviate, pgvector) · Vercel AI SDK · Streaming · Tool calling · Langfuse tracing · Multi-LLM (OpenAI, Anthropic, Gemini, Azure) · Claude Code
 
 ## Experience
 
-### Freelance Senior Frontend / Full-Stack Engineer
+### Freelance Senior Frontend / Full-Stack Engineer — Sep 2019 – Present
 Freelancer / IT contractor · Remote, Germany
-*September 2019 – Present*
 
 Multi-year and repeat engagements for German and international product companies. Clients and outcomes:
 
@@ -40,22 +39,29 @@ Senior Frontend Engineer · aboutyou.de
 Stack: React, TypeScript, Linaria, gRPC, Monorepo (Yarn workspaces), Node.js, Storybook, Jest, RTL, Cypress, GitLab CI, Datadog
 
 **Mehrwerk GmbH** — B2B2C loyalty & content platform, 1M+ MAU
-Frontend Lead · team of 5 · mehrwerk.de
+Frontend Lead · team of 5 · 4 years (2021–2025), incl. 1.5 years full-time · mehrwerk.de
 
-- Owned the platform architecture: designed a multi-tenant React application framework that cut client onboarding from ~4 months to 30 minutes, turning each new client into a configuration task instead of a project.
+- Owned the platform architecture: wrote the RFC and ADRs for the platform concept, then designed and built the multi-tenant React application framework over 4 years that cut client onboarding from ~4 months to 30 minutes, turning each new client into a configuration task instead of a project.
+- Led a team of five: hired frontend engineers, including my successor as Frontend Lead, ran technical 1:1s, set the coding standards and ran code reviews.
+- Joined the weekly planning session with the CTO and the backend and product leads for the 15-engineer organisation: roadmap priorities, hiring and staffing decisions.
+- Documented the team’s engineering practices, code of conduct and workflows in Confluence, defined how the frontend and backend teams work together, and ran the joint frontend–backend meetings.
 - Built a UI Editor that let non-technical editors publish content changes to web and native apps in real time, removing developer involvement from content updates for 1M+ monthly active users.
 - Designed and owned the k6/Grafana Cloud load-testing suite (smoke, stress, soak, spike) for SSR and GraphQL services, giving every release a measured capacity limit before it hit production.
+- Set up and owned CI/CD on GitHub Actions, Azure and Rancher (Kubernetes); ~3 years of hands-on Azure.
 - Led the WCAG accessibility migration across web and native apps — audit, remediation standards, implementation — bringing the platform to compliance required by enterprise clients.
+- Backend exposure: Kotlin / Java with Spring Boot on the JVM, MongoDB.
 
-Stack: TypeScript, React, Vue 2/3, Ionic, React Native, Next.js, Node.js, Kotlin, GraphQL, MongoDB, Jest, Cypress, AWS, k6
+Stack: TypeScript, React, Vue 2/3, Tailwind CSS, Ionic, React Native, Next.js, Node.js, Kotlin, Java, Spring Boot, GraphQL, MongoDB, Jest, Cypress, AWS, Azure, Rancher, Kubernetes, GitHub Actions, k6
 
-**SelectCode GmbH** — meinGPT, enterprise AI platform
+**SelectCode GmbH** — meinGPT, enterprise AI platform, ~50 companies, 20k+ users
 Fullstack Developer · meingpt.com
 
-- Built collaborative features — shared AI assistants and chat workflows — for a privacy-focused RAG platform with multi-LLM support (React, Zustand).
+- Built streaming chat with tool calling (Vercel AI SDK) and collaborative features — shared AI assistants, chat workflows — for a privacy-focused RAG platform with multi-LLM support (React, Zustand).
+- Built a custom Data Vault ingestion service (Python/FastAPI): document chunking (LangChain text splitters) and loading into a Weaviate vector store, feeding the platform’s retrieval pipeline.
+- Designed and shipped LLM token-usage metering across a multi-provider GenAI platform (OpenAI, Gemini, Anthropic, Azure): Prisma data model, tRPC service and AI-middleware hooks capturing provider-reported and estimated tokens, including failed and rate-limited calls. This became the basis for per-company usage limits and a new revenue stream from paid extra tokens, which I made purchasable through a Shopify integration.
 - Implemented secure tRPC/Prisma endpoints for organisation hierarchies, RBAC (Lucia Auth) and Stripe subscriptions — the billing and permission layer enterprise customers are sold on.
 
-Stack: TypeScript, React, NestJS, tRPC, Prisma, PostgreSQL, Playwright, RAG, OpenAI API, Kubernetes
+Stack: TypeScript, React, Next.js, NestJS, tRPC, Prisma, PostgreSQL, Python, FastAPI, Weaviate, pgvector, Langfuse, Vercel AI SDK, Playwright, RAG, OpenAI API, Kubernetes
 
 **eBay GmbH (Adevinta)** — Kijiji Autos, Canada’s largest auto marketplace
 Senior React Developer · dealer retail team · kijijiautos.ca
@@ -94,8 +100,7 @@ Senior React Developer · tooltime.de
 Stack: TypeScript, React, GraphQL, Apollo, Jest, Cypress, CircleCI, AWS
 
 ### Careem (acquired by Uber) — ride-hailing & delivery super-app
-**Senior Software Developer** · Full-time · Berlin · careem.com
-*June 2018 – August 2019*
+**Senior Software Developer** — Jun 2018 – Aug 2019 · Full-time · Berlin · careem.com
 
 - Led frontend architecture for the corporate-customers product and maintained the shared Web UI library used across the Careem ecosystem.
 - Contributed to last-mile delivery and CareemNow (food delivery) on a platform handling 380M+ requests a day for 10M+ monthly active users; Scrum master for a team of 6.
@@ -103,24 +108,21 @@ Stack: TypeScript, React, GraphQL, Apollo, Jest, Cypress, CircleCI, AWS
 **Stack:** React, React Native, Redux, Saga, TypeScript, Jest, Cypress, Kotlin, Scala, MySQL, AWS, Docker, Jenkins
 
 ### Circula GmbH — expense management
-**Frontend Developer** · Full-time · Berlin · circula.com
-*November 2017 – May 2018*
+**Frontend Developer** — Nov 2017 – May 2018 · Full-time · Berlin · circula.com
 
 - Built expense-management tools for accountants and supervisors (React, Redux, Ruby on Rails).
 
 **Stack:** React, Redux, Ruby on Rails, RSpec, Docker
 
 ### Mes.mo GmbH / Gastroguide — restaurant saas
-**Full Stack Developer** · Full-time · Stuttgart · gastroguide.de
-*January 2015 – October 2017*
+**Full Stack Developer** — Jan 2015 – Oct 2017 · Full-time · Stuttgart · gastroguide.de
 
 - Architected the restaurant platform: reservation system, website constructor, advertising system, form/menu builders and REST API for mobile apps. 15 restaurants on the platform.
 
 **Stack:** React, Redux, Flux, PHP, MySQL, AWS
 
 ### UKEESS — e-commerce agency
-**Full Stack Developer** · Full-time · Lviv, Ukraine
-*April 2014 – December 2014*
+**Full Stack Developer** — Apr 2014 – Dec 2014 · Full-time · Lviv, Ukraine
 
 - Developed and maintained Magento plugins for e-commerce clients (PHP).
 
