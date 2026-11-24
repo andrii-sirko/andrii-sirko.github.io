@@ -187,6 +187,36 @@ function initStack() {
 
 /* ── chrome: progress bar, sticky topbar, copy, year ────────────────────── */
 
+const MOD = /Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent) ? '⌘' : 'Ctrl+';
+
+const selectText = (el) => {
+  if (!el) return;
+  const range = document.createRange();
+  range.selectNodeContents(el);
+  const sel = window.getSelection();
+  sel.removeAllRanges();
+  sel.addRange(range);
+};
+
+/* Synchronous clipboard write for the cases the async API refuses. */
+const legacyCopy = (text) => {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.setAttribute('readonly', '');
+  ta.style.cssText = 'position:fixed;top:0;left:0;width:1px;height:1px;opacity:0;';
+  document.body.appendChild(ta);
+  ta.select();
+  ta.setSelectionRange(0, text.length);
+  let ok = false;
+  try {
+    ok = document.execCommand('copy');
+  } catch {
+    ok = false;
+  }
+  ta.remove();
+  return ok;
+};
+
 function initChrome() {
   const bar = $('[data-progress]');
   const topbar = $('[data-topbar]');
@@ -215,13 +245,26 @@ function initChrome() {
     copyBtn.addEventListener('click', async () => {
       const hint = $('[data-copy-hint]', copyBtn);
       const text = copyBtn.dataset.copy;
-      try {
-        await navigator.clipboard.writeText(text);
-        hint.textContent = 'Copied';
-      } catch {
-        window.location.href = `mailto:${text}`;
-        return;
+
+      let ok = false;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        // Rejects on an unfocused document, a denied permission or an insecure
+        // origin — none of which should leave the button doing nothing.
+        try {
+          await navigator.clipboard.writeText(text);
+          ok = true;
+        } catch { /* fall through to execCommand */ }
       }
+      if (!ok) ok = legacyCopy(text);
+
+      if (ok) {
+        hint.textContent = 'Copied';
+      } else {
+        // Last resort: select the address so the keyboard shortcut works.
+        selectText($('.link__v', copyBtn));
+        hint.textContent = `Press ${MOD}C`;
+      }
+
       hint.classList.add('is-done');
       clearTimeout(copyBtn._t);
       copyBtn._t = setTimeout(() => {
